@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" class="lenis">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logo concepts — trial-rooms.ai</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<style>
+  .logo-page { padding: 5rem var(--gut) 7rem; max-width: 1280px; margin-inline: auto; }
+  .logo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
+  .logo-card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    padding: 2.4rem;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  .logo-card .mark {
+    width: 200px; height: 200px;
+    border: 1px dashed var(--line-bright);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+  }
+  .logo-card .mark img { width: 80%; height: 80%; }
+  .logo-card .meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .logo-card .tag {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+  }
+  .logo-card .name {
+    font-family: var(--display);
+    font-size: 1.65rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .logo-card .desc {
+    color: var(--ink-soft);
+    font-size: 0.96rem;
+    max-width: 38ch;
+  }
+  .lockup {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.45rem;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    margin-top: 0.8rem;
+  }
+  .lockup img { width: 32px; height: 32px; }
+  .lockup .ai { color: var(--acid-deep); }
+  .sizes {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    margin-top: 0.5rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--line);
+  }
+  .sizes img { background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 4px; }
+  .sizes .s16 { width: 16px; height: 16px; }
+  .sizes .s24 { width: 24px; height: 24px; }
+  .sizes .s40 { width: 40px; height: 40px; }
+  .sizes-label {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    color: var(--ink-mute);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-left: 0.4rem;
+  }
+  @media (max-width: 900px) {
+    .logo-grid { grid-template-columns: 1fr; }
+    .logo-card { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="logo-page">
+  <a href="index.html" class="eyebrow" style="text-decoration:none">← Back to site</a>
+  <h1 class="h-section" style="margin-top:1.4rem">Logo concepts.</h1>
+  <p class="lede" style="margin-top:0.8rem">Four directions. Tell me which one to commit to and I'll wire it into the favicon, nav lockup, and OG image template.</p>
+
+  <div class="logo-grid">
+
+    <div class="logo-card">
+      <div class="mark"><img src="assets/logo-a.svg" alt="Logo A"></div>
+      <div class="meta">
+        <div class="tag">Option A · Bracketed dot</div>
+        <div class="name">[ • ]</div>
+        <div class="desc">Two thin brackets framing a single data point. Reads as "subject being measured." Echoes the placeholder labels used across the site ("[ annotated video ]"). Most distinctive at small sizes.</div>
+        <div class="lockup">
+          <img src="assets/logo-a.svg" alt="">
+          <span>trial-rooms<span class="ai">.ai</span></span>
+        </div>
+        <div class="sizes">
+          <img class="s16" src="assets/logo-a.svg" alt="">
+          <img class="s24" src="assets/logo-a.svg" alt="">
+          <img class="s40" src="assets/logo-a.svg" alt="">
+          <span class="sizes-label">16 · 24 · 40 px</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="logo-card">
+      <div class="mark"><img src="assets/logo-b.svg" alt="Logo B"></div>
+      <div class="meta">
+        <div class="tag">Option B · Frame in frame</div>
+        <div class="name">□ ▪</div>
+        <div class="desc">Outer square = the "trial room"; inner filled square = the player being measured. Connects directly to the `.frame` component used everywhere on the site. Most architectural / B2B-confident.</div>
+        <div class="lockup">
+          <img src="assets/logo-b.svg" alt="">
+          <span>trial-rooms<span class="ai">.ai</span></span>
+        </div>
+        <div class="sizes">
+          <img class="s16" src="assets/logo-b.svg" alt="">
+          <img class="s24" src="assets/logo-b.svg" alt="">
+          <img class="s40" src="assets/logo-b.svg" alt="">
+          <span class="sizes-label">16 · 24 · 40 px</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="logo-card">
+      <div class="mark"><img src="assets/logo-c.svg" alt="Logo C"></div>
+      <div class="meta">
+        <div class="tag">Option C · Viewfinder dot</div>
+        <div class="name">+ · +</div>
+        <div class="desc">Four cardinal ticks around a centred dot. Reads as a motion-capture marker / measurement target. Most "AI / mocap" of the four. Strong at small sizes; might feel busy at 16px.</div>
+        <div class="lockup">
+          <img src="assets/logo-c.svg" alt="">
+          <span>trial-rooms<span class="ai">.ai</span></span>
+        </div>
+        <div class="sizes">
+          <img class="s16" src="assets/logo-c.svg" alt="">
+          <img class="s24" src="assets/logo-c.svg" alt="">
+          <img class="s40" src="assets/logo-c.svg" alt="">
+          <span class="sizes-label">16 · 24 · 40 px</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="logo-card">
+      <div class="mark"><img src="assets/logo-d.svg" alt="Logo D"></div>
+      <div class="meta">
+        <div class="tag">Option D · Monogram</div>
+        <div class="name">tr •</div>
+        <div class="desc">Lowercase "tr" set in Geist Display Bold with a small butterscotch dot. Pure typographic. Most premium / wordmark-led — sits naturally beside the full wordmark. Least distinctive as a pure symbol at favicon size.</div>
+        <div class="lockup">
+          <img src="assets/logo-d.svg" alt="">
+          <span>trial-rooms<span class="ai">.ai</span></span>
+        </div>
+        <div class="sizes">
+          <img class="s16" src="assets/logo-d.svg" alt="">
+          <img class="s24" src="assets/logo-d.svg" alt="">
+          <img class="s40" src="assets/logo-d.svg" alt="">
+          <span class="sizes-label">16 · 24 · 40 px</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "trial-rooms.ai",
+  "short_name": "trial-rooms",
+  "description": "AI football performance intelligence — health, biomechanics and scouting.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F2E8D9",
+  "theme_color": "#F2E8D9",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="floodlight-amber" cx="85%" cy="10%" r="55%">
+      <stop offset="0%" stop-color="#FFD23F" stop-opacity="0.32"/>
+      <stop offset="60%" stop-color="#FFD23F" stop-opacity="0.0"/>
+    </radialGradient>
+    <radialGradient id="floodlight-blue" cx="5%" cy="95%" r="55%">
+      <stop offset="0%" stop-color="#3A6BFF" stop-opacity="0.22"/>
+      <stop offset="65%" stop-color="#3A6BFF" stop-opacity="0.0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#07080B"/>
+  <rect width="1200" height="630" fill="url(#floodlight-amber)"/>
+  <rect width="1200" height="630" fill="url(#floodlight-blue)"/>
+
+  <g opacity="0.18" stroke="#2F3848" stroke-width="1">
+    <line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+  </g>
+
+  <g transform="translate(440, 165) scale(1.25)">
+    <circle cx="120" cy="44" r="16" fill="#F4F5F7"/>
+    <path d="M 116 64 L 96 118 L 58 170" stroke="#F4F5F7" stroke-width="16" stroke-linecap="round" fill="none"/>
+    <path d="M 96 118 L 130 140 L 150 178" stroke="#F4F5F7" stroke-width="16" stroke-linecap="round" fill="none"/>
+    <path d="M 108 84 L 70 102" stroke="#F4F5F7" stroke-width="15" stroke-linecap="round" fill="none"/>
+    <path d="M 112 84 L 142 64" stroke="#F4F5F7" stroke-width="15" stroke-linecap="round" fill="none"/>
+    <circle cx="172" cy="178" r="13" fill="#F4F5F7"/>
+    <polygon points="172,172.5 177.5,176.5 175.5,182.5 168.5,182.5 166.5,176.5" fill="#FFD23F"/>
+  </g>
+
+  <text x="600" y="500" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="88" font-weight="600" fill="#FFD23F" letter-spacing="-3.5">trial-rooms.ai</text>
+  <text x="600" y="548" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="400" fill="#B0B5BD" letter-spacing="0.5">Performance intelligence for football.</text>
+
+  <text x="60" y="595" font-family="JetBrains Mono, monospace" font-size="14" fill="#6E747F" letter-spacing="2">VITALS · FRAME · PATHWAY</text>
+  <text x="1140" y="595" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="14" fill="#6E747F" letter-spacing="2">trial-rooms.ai</text>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 200">
+  <rect width="880" height="200" fill="#07080B"/>
+  <g transform="translate(20, 0)">
+    <circle cx="120" cy="44" r="16" fill="#F4F5F7"/>
+    <path d="M 116 64 L 96 118 L 58 170" stroke="#F4F5F7" stroke-width="16" stroke-linecap="round" fill="none"/>
+    <path d="M 96 118 L 130 140 L 150 178" stroke="#F4F5F7" stroke-width="16" stroke-linecap="round" fill="none"/>
+    <path d="M 108 84 L 70 102" stroke="#F4F5F7" stroke-width="15" stroke-linecap="round" fill="none"/>
+    <path d="M 112 84 L 142 64" stroke="#F4F5F7" stroke-width="15" stroke-linecap="round" fill="none"/>
+    <circle cx="172" cy="178" r="13" fill="#F4F5F7"/>
+    <polygon points="172,172.5 177.5,176.5 175.5,182.5 168.5,182.5 166.5,176.5" fill="#FFD23F"/>
+  </g>
+  <text x="240" y="128" font-family="Fraunces, Georgia, serif" font-size="86" font-weight="600" fill="#FFD23F" letter-spacing="-3.5">trial-rooms.ai</text>
+</svg>
