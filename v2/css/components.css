@@ -1671,3 +1671,148 @@ a:hover .frame { border-color: var(--line-bright); }
 .step-v2:hover .frame { border-color: var(--acid); }
 
 /* Stronger Lenis-tied parallax factors via inline data overrides handled in JS */
+
+/* ============================================================
+   v2 — Mobile redesign (≤ 760px)
+   ============================================================ */
+
+/* Pointer/touch hint swap */
+.hint-touch { display: none; }
+@media (hover: none), (pointer: coarse) {
+  .hint-pointer { display: none; }
+  .hint-touch { display: block; }
+}
+
+@media (max-width: 760px) {
+  /* Section padding tighter on phone */
+  .section { padding-block: clamp(3rem, 8vh, 5rem); }
+  .section--tight { padding-block: clamp(2rem, 5vh, 3rem); }
+
+  /* Hero v2 — stack, smaller stage */
+  .hero-v2 { padding-top: 5rem; padding-bottom: 2rem; min-height: auto; }
+  .hero-v2-inner { gap: 1.8rem; }
+  .hero-v2 .h-display { font-size: clamp(2.2rem, 9.5vw, 2.8rem); }
+  .hero-v2 .lede { font-size: 0.98rem; }
+  .hero-trail-stage { height: clamp(360px, 56vh, 460px); }
+  .hero-cta-row { width: 100%; }
+  .hero-cta-row .btn { flex: 1; justify-content: center; padding: 0.95em 1.2em; }
+
+  /* Trail card slightly smaller on phone */
+  .trail-card { width: 108px; height: 138px; padding: 0.55rem; }
+  .trail-card .t-num { font-size: 1.3rem; }
+  .trail-card.t-score .t-num { font-size: 2.8rem; }
+  .trail-card.t-rank .t-name { font-size: 0.78rem; }
+
+  /* Nav — tighten logo + drop sign-in (already hidden) */
+  .nav { padding-block: 1rem; }
+  .nav-logo { font-size: 1.1rem; }
+  .nav-mark { width: 22px; height: 22px; }
+  .nav-cta { gap: 0.6rem; }
+  .nav-cta .btn-primary { padding: 0.75em 1.1em; font-size: 0.74rem; }
+
+  /* Section heads — smaller */
+  .sec-head { margin-bottom: 2rem; }
+  .h-section { font-size: clamp(1.8rem, 7vw, 2.4rem); }
+  .lede { font-size: 1rem; }
+
+  /* Trusted-by */
+  .logo-strip { grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
+  .logo-slot { height: 32px; }
+
+  /* Products bento — already collapses, tighten body */
+  .products-bento { gap: 0.9rem; min-height: 0; }
+  .products-bento .ptile-body { padding: 1.1rem 1.2rem 1.3rem; }
+  .products-bento .ptile-name { font-size: 1.5rem; }
+  .products-bento .ptile-frame { min-height: 200px; }
+
+  /* Pipeline — disable pin, vertical-stack scenes */
+  .pipeline.is-mobile .pipeline-pin { min-height: auto; padding-block: 2rem; display: block; }
+  .pipeline.is-mobile .pipeline-inner { display: block; }
+  .pipeline.is-mobile .pipeline-text { max-width: none; margin-bottom: 1.5rem; }
+  .pipeline.is-mobile .pipeline-text .h-section { margin-block: 1rem 0; }
+  .pipeline.is-mobile .pipeline-steps,
+  .pipeline.is-mobile .pipeline-progress { display: none; }
+  .pipeline.is-mobile .pipeline-stage {
+    position: relative;
+    height: auto;
+    background: none;
+    border: none;
+    overflow: visible;
+  }
+  .pipeline.is-mobile .pipeline-scene {
+    position: relative;
+    inset: auto;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    width: 100%;
+    height: clamp(340px, 70vw, 480px);
+    margin-bottom: 1rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 30%, var(--acid-glow), transparent 65%),
+      linear-gradient(180deg, var(--bg-card) 0%, var(--bg-elev) 100%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pipeline.is-mobile .pipeline-m-caption {
+    padding: 0 0.2rem 1.6rem;
+    margin-top: -0.3rem;
+  }
+  .pipeline.is-mobile .pipeline-m-caption .ps-num {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    color: var(--acid);
+  }
+  .pipeline.is-mobile .pipeline-m-caption .ps-title {
+    display: block;
+    font-family: var(--display);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-top: 0.3rem;
+    letter-spacing: -0.02em;
+  }
+  .pipeline.is-mobile .pipeline-m-caption .ps-body {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin-top: 0.4rem;
+  }
+
+  /* 104pts — already responsive, tighten number */
+  .t104-stat { font-size: clamp(4.6rem, 22vw, 7rem); }
+  .t104-progress { max-width: none; }
+
+  /* Audience tiles tighter */
+  .aud-tile .aud-label { font-size: 0.9rem; line-height: 1.2; min-height: 2.4em; }
+  .aud-v2 { gap: 0.8rem; }
+
+  /* Voices */
+  .voice p { font-size: 1.02rem; }
+  .voice.voice-lg p { font-size: 1.2rem; }
+
+  /* Pricing teaser */
+  .pricing-teaser { padding: 1.8rem; gap: 1.4rem; }
+
+  /* CTA band tighter */
+  .cta-band { padding: 2.5rem 1.5rem; }
+
+  /* FAQ */
+  .faq-q { font-size: 1.05rem; padding-block: 1.3rem; }
+
+  /* Footer compact */
+  .footer { padding-block: 3rem 2rem; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+
+/* small phones */
+@media (max-width: 420px) {
+  .hero-trail-stage { height: clamp(320px, 50vh, 400px); }
+  .nav-cta .btn-ghost { display: none; }
+  .logo-strip { grid-template-columns: repeat(2, 1fr); }
+  .trail-card { width: 96px; height: 124px; }
+}

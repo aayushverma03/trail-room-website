@@ -317,7 +317,9 @@ function showFormMsg(form, msg, type) {
 function initHeroTrail() {
   const stage = document.querySelector('.hero-trail-stage');
   if (!stage) return;
-  if (matchMedia('(hover: none), (pointer: coarse)').matches) return;
+
+  const isTouch = matchMedia('(hover: none), (pointer: coarse)').matches;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const variants = ['skel', 'ring', 'score', 'rank', 'chip'];
   const names = ['M. Aydin', 'R. Adebayo', 'J. Vargas', 'L. Petrov', 'K. Tanaka', 'D. Silva', 'A. Castillo', 'J. Okafor'];
@@ -402,6 +404,19 @@ function initHeroTrail() {
     spawn(e.clientX - rect.left, e.clientY - rect.top);
   });
 
+  // Touch: tap and drag spawn cards
+  const handleTouch = (e) => {
+    const t = e.touches && e.touches[0];
+    if (!t) return;
+    const now = performance.now();
+    if (now - lastSpawn < 80) return;
+    lastSpawn = now;
+    const rect = stage.getBoundingClientRect();
+    spawn(t.clientX - rect.left, t.clientY - rect.top);
+  };
+  stage.addEventListener('touchstart', handleTouch, { passive: true });
+  stage.addEventListener('touchmove', handleTouch, { passive: true });
+
   // Seed initial cards so the stage doesn't look empty
   requestAnimationFrame(() => {
     const rect = stage.getBoundingClientRect();
@@ -412,14 +427,25 @@ function initHeroTrail() {
     ];
     seeds.forEach(([sx, sy], i) => setTimeout(() => spawn(sx, sy), i * 280));
   });
+
+  // On touch / reduced-motion-off, auto-cycle so the stage stays alive
+  if (isTouch && !reduced) {
+    setInterval(() => {
+      const rect = stage.getBoundingClientRect();
+      if (rect.width === 0) return;
+      const x = rect.width * (0.18 + Math.random() * 0.64);
+      const y = rect.height * (0.2 + Math.random() * 0.6);
+      spawn(x, y);
+    }, 1100);
+  }
 }
 
-/* ---------- 12. Pipeline (4-step scroll-scrub) ---------- */
+/* ---------- 12. Pipeline (4-step scroll-scrub on desktop, vertical stack on mobile) ---------- */
 function initPipeline() {
   const pipeline = document.querySelector('.pipeline');
   if (!pipeline) return;
-  if (typeof gsap === 'undefined' || !window.ScrollTrigger) return;
 
+  const isMobile = window.matchMedia('(max-width: 760px)').matches;
   const steps = pipeline.querySelectorAll('.pipeline-step');
   const scenes = pipeline.querySelectorAll('.pipeline-scene');
   const ppFill = pipeline.querySelector('.pp-fill');
@@ -548,6 +574,56 @@ function initPipeline() {
       scenes[3].style.setProperty('--p', Math.min(1, local * 1.4));
     }
   };
+
+  if (isMobile) {
+    // ---- Mobile path: vertical stack, IO-driven per-scene playback ----
+    pipeline.classList.add('is-mobile');
+
+    // Restructure DOM: pair each step's text next to its scene
+    const captions = ['Capture', 'Tag', 'Score', 'Share'];
+    const stage = pipeline.querySelector('.pipeline-stage');
+    scenes.forEach((scene, idx) => {
+      const cap = document.createElement('div');
+      cap.className = 'pipeline-m-caption';
+      const step = steps[idx];
+      const num = step.querySelector('.ps-num')?.textContent || String(idx + 1).padStart(2, '0');
+      const body = step.querySelector('.ps-body')?.innerHTML || '';
+      cap.innerHTML = `<span class="ps-num">${num} · ${captions[idx]}</span>
+        <span class="ps-body">${body}</span>`;
+      // Insert caption right after the scene
+      scene.insertAdjacentElement('afterend', cap);
+    });
+
+    // Activate scenes immediately (mobile shows them all)
+    scenes.forEach((s) => s.classList.add('is-active'));
+
+    // Play each scene's animation on enter
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const idx = Array.prototype.indexOf.call(scenes, entry.target);
+        if (idx < 0) return;
+        if (entry.target.dataset.played) return;
+        entry.target.dataset.played = '1';
+
+        const start = performance.now();
+        const dur = 1400;
+        const tick = (now) => {
+          const p = Math.min(1, (now - start) / dur);
+          setLocal(idx, p);
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.35 });
+    scenes.forEach((s) => io.observe(s));
+
+    return;
+  }
+
+  // ---- Desktop path: pinned scroll-scrub ----
+  if (typeof gsap === 'undefined' || !window.ScrollTrigger) return;
 
   ScrollTrigger.create({
     trigger: pipeline,
